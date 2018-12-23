@@ -1,0 +1,4 @@
+<h2>Test Scores Summary</h2>
+<p *ngIf="students.length">Minimum: {{ getMinScore() }}</p>
+<p *ngIf="students.length">Maximum: {{ getMaxScore() }}</p>
+<p *ngIf="students.length">Average: {{ getAverage().toFixed(2) }}</p>

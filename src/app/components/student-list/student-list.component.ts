@@ -13,7 +13,7 @@ import { DELETE_STUDENT, UPDATE_STUDENT } from './../../store/actions/students.a
   styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent implements OnInit {
-  editing = false;
+  // editing = false;
   indexToEdit: number | null;
   students: Student[];
   student: Student;
@@ -25,6 +25,7 @@ export class StudentListComponent implements OnInit {
     this.form = fb.group({
       'name': this.name,
       'score': this.score,
+      'userEditing': false,
     });
   }
 
@@ -45,25 +46,38 @@ export class StudentListComponent implements OnInit {
     this.form = this.fb.group({
       'name': student.name,
       'score': student.score,
+      'userEditing': false,
     });
-    this.editing = true;
-    this.student = student;
     this.indexToEdit = index;
+    const updatedStudent = student;
+    updatedStudent['userEditing'] = true;
+    this.store.dispatch({
+      type: UPDATE_STUDENT,
+      payload: { index: this.indexToEdit, newValue: updatedStudent } });
+    this.student = student;
   }
 
   cancelEdit() {
-    this.editing = false;
-    this.indexToEdit = null;
-  }
-
-  updateStudent(updatedStudent: Student) {
+    const updatedStudent = this.student;
+    updatedStudent['userEditing'] = false;
     this.store.dispatch({
       type: UPDATE_STUDENT,
       payload: { index: this.indexToEdit, newValue: updatedStudent } });
     this.indexToEdit = null;
-    this.editing = false;
+  }
+
+  updateStudent(updatedStudent: Student) {
+    console.log(updatedStudent);
+    this.store.dispatch({
+      type: UPDATE_STUDENT,
+      payload: { index: this.indexToEdit, newValue: updatedStudent } });
+    this.indexToEdit = null;
     console.log(this.students);
     this.form.reset();
+  }
+
+  onSubmit() {
+    this.updateStudent(this.form.value);
   }
 
 }

@@ -21,6 +21,7 @@ export class StudentsComponent implements OnInit {
     this.form = fb.group({
       'name': this.name,
       'score': this.score,
+      'userEditing': false,
     });
   }
 
@@ -35,7 +36,7 @@ export class StudentsComponent implements OnInit {
   onSubmit() {
     console.log("model-based form submitted");
     console.log(this.form);
-      this.addStudent(this.form.value);
+    this.addStudent(this.form.value);
   }
 
 }

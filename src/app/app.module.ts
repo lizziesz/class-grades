@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from "@angular/forms";
 import { StoreModule } from '@ngrx/store';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { ScoreSummaryComponent } from './components/score-summary/score-summary.
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    ClickOutsideModule,
     StoreModule.forRoot({ studentReducer })
   ],
   providers: [],

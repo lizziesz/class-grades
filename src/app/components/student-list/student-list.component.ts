@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { FormGroup, FormControl, Validators, FormBuilder }
     from '@angular/forms';
@@ -29,11 +29,18 @@ export class StudentListComponent implements OnInit {
     });
   }
 
+  @HostListener('document:click', ['onOutsideClick(event)'])
+
   ngOnInit() {
     this.store.select('studentReducer')
       .subscribe(data => {
         this.students = data;
       });
+  }
+
+  onOutsideClick(event) {
+    console.log(event);
+    console.log(this.form);
   }
 
   deleteStudent(index: number) {

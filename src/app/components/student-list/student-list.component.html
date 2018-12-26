@@ -1,14 +1,14 @@
-<ul>
+<ul class="student-list">
   <li *ngFor="let student of students; let i = index;">
     <span *ngIf="!student.userEditing">{{ student.name }} -- {{ student.score }}</span>
     <form *ngIf="student.userEditing" [formGroup]="form" (ngSubmit)="onSubmit()">
       <input type="text" formControlName="name">
       --
       <input type="number" formControlName="score">
-      <button type="submit" [disabled]="!form.valid">Edit</button>
+      <button type="submit" [disabled]="!form.valid">Save</button>
     </form>
     <button (click)="cancelEdit()" *ngIf="student.userEditing">Cancel</button>
     <button (click)="editStudent(student, i)" *ngIf="!student.userEditing">Edit</button>
-    <button (click)="deleteStudent(i)">X</button>
+    <button (click)="deleteStudent(i)">Delete</button>
   </li>
 </ul>

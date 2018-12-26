@@ -1,0 +1,25 @@
+@import '../../../styles/global/variables';
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: var($gray-color-1);
+  border: none;
+  padding: .7rem 2rem;
+  border-radius: 100px;
+  width: 30%;
+  transition: all .2s;
+  margin: 10px;
+
+  &:focus {
+    outline: none;
+    width: 35%;
+    background-color: var($gray-color-2);
+  }
+
+  &::-webkit-input-placeholder {
+    font-weight: 100;
+    color: var($gray-color-3);
+  }
+}

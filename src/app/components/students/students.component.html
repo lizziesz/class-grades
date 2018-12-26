@@ -1,10 +1,12 @@
 <section>
   <h1>Add Students</h1>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <p>Name: </p>
-    <input type="text" formControlName="name">
-    <p>Score: </p>
-    <input type="number" formControlName="score">
+    <div>
+      <input type="text" formControlName="name" placeholder="Name">
+    </div>
+    <div>
+      <input type="number" formControlName="score" placeholder="Test Score">
+    </div>
     <button type="submit" [disabled]="!form.valid">Add</button>
   </form>
 </section>

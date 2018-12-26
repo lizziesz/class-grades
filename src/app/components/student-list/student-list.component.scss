@@ -1,0 +1,15 @@
+@import '../../../styles/global/variables';
+
+.student-list {
+  list-style-type: none;
+  color: $secondary-color;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+}

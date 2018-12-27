@@ -6,6 +6,12 @@ This project allows a user to enter student names and test scores, and generates
 
 This is a just a front end project, and there is no persistent data store or service. It uses NgRx for state management.
 
+## Quick Start
+
+`npm install`
+`npm start`
+navigate to `http://localhost:4200/`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. If you run `ng serve --open`, localhost:4200 will be opened for you. The app will automatically reload if you change any of the source files.

@@ -12,7 +12,6 @@ import { ADD_STUDENT } from './../../store/actions/students.action';
   styleUrls: ['./students.component.scss']
 })
 export class StudentsComponent implements OnInit {
-  student: Student;
   form: FormGroup;
   name = new FormControl('', Validators.required);
   score = new FormControl('', Validators.required);

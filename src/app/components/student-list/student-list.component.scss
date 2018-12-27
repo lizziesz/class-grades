@@ -1,4 +1,5 @@
 @import '../../../styles/global/variables';
+@import '../../../styles/global/mixins';
 
 form {
   display: inline;
@@ -18,13 +19,21 @@ input {
   background: transparent;
   border: none;
   border-bottom: 1px solid $secondary-color;
+  text-align: center;
 }
 
 .score-input {
-  width: 5%;
+  @include sm {
+    width: 5%;
+  }
+  width: 9%;
 }
 
 .btn-inline {
+  @include sm {
+    margin-right: 15px;
+  }
+
   border: none;
   color: $primary-color;
   font-size: .75rem;
@@ -36,10 +45,10 @@ input {
   transition: all .2s;
   margin-top: 5px;
   margin-bottom: 5px;
-  margin-right: 15px;
+  margin-right: 5px;
 
   &:first-of-type {
-    margin-left: 15px;
+    margin-left: 10px;
   }
 }
 

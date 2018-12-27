@@ -17,7 +17,6 @@ export interface StudentPayload {
 export function studentReducer(state = [], action: ActionWithPayload<StudentPayload>) {
   switch (action.type) {
     case StudentActions.ADD_STUDENT:
-      console.log('adding student', [action.payload.value, ...state]);
       return [...state, action.payload.value];
     case StudentActions.DELETE_STUDENT:
       return state.filter((item, index) => index !== action.payload.index);

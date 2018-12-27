@@ -19,7 +19,7 @@ export class ScoreSummaryComponent implements OnInit {
       .subscribe(data => {
         this.students = data;
         this.scores = [];
-        if (this.students.length) {
+        if (this.students && this.students.length) {
           this.students.forEach(student => {
             this.scores.push(student.score);
           })

@@ -1,15 +1,27 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+
 import { AppComponent } from './app.component';
+import { StudentsComponent } from './components/students/students.component';
+import { StudentListComponent } from './components/student-list/student-list.component';
+import { ScoreSummaryComponent } from './components/score-summary/score-summary.component';
+import * as fromRoot from './../app/store/reducers/student.reducer';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        ReactiveFormsModule,
+        StoreModule.forRoot(fromRoot.studentReducer),
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        StudentsComponent,
+        StudentListComponent,
+        ScoreSummaryComponent,
       ],
     }).compileComponents();
   }));
@@ -24,12 +36,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('class-grades');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to class-grades!');
   });
 });

@@ -1,4 +1,5 @@
 @import '../../../styles/global/variables';
+@import '../../../styles/global/mixins';
 
 input {
   font-family: inherit;
@@ -25,6 +26,10 @@ input {
 }
 
 .btn {
+  @include sm {
+    width: 10%;
+  }
+
   text-transform: uppercase;
   font-size: 1rem;
   font-weight: 100;
@@ -34,7 +39,7 @@ input {
   color: #fff;
   position: relative;
   overflow: hidden;
-  width: 10%;
+  width: 33%;
   padding: 10px;
 
   &:hover {

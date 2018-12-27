@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder }
     from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Student } from './../../Student';
+import { Student } from '../../models/Student';
 import { DELETE_STUDENT, UPDATE_STUDENT } from './../../store/actions/students.action';
 
 @Component({
@@ -16,15 +16,8 @@ export class StudentListComponent implements OnInit {
   students: Student[];
   student: Student;
   form: FormGroup;
-  name = new FormControl('', Validators.required);
-  score = new FormControl('', Validators.required);
 
   constructor(private store: Store<any>, private fb: FormBuilder) {
-    this.form = fb.group({
-      'name': this.name,
-      'score': this.score,
-      'userEditing': false,
-    });
   }
 
   ngOnInit() {
@@ -34,7 +27,7 @@ export class StudentListComponent implements OnInit {
       });
   }
 
-  onOutsideClick(event: Event) {
+  onOutsideClick() {
     if (this.form.valid && this.form.touched) {
       this.updateStudent(this.form.value);
     }
@@ -49,8 +42,8 @@ export class StudentListComponent implements OnInit {
       this.updateStudent(this.form.value);
     }
     this.form = this.fb.group({
-      'name': student.name,
-      'score': student.score,
+      'name': [student.name, Validators.required],
+      'score': [student.score, Validators.required],
       'userEditing': false,
     });
     this.indexToEdit = index;

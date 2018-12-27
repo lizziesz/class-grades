@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { Student } from './../../Student';
+import { Student } from '../../models/Student';
 
 @Component({
   selector: 'app-score-summary',

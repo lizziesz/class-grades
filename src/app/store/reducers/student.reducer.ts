@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { Student } from './../../Student';
+import { Student } from '../../models/Student';
 
 import * as StudentActions from '../actions/students.action';
 

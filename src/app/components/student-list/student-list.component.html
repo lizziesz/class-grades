@@ -1,13 +1,15 @@
 <ul class="student-list">
   <li *ngFor="let student of students; let i = index;">
-    <span *ngIf="!student.userEditing">{{ student.name }} -- {{ student.score }}</span>
+    <span *ngIf="!student.userEditing">
+      {{ student.name }} -- {{ student.score }}
+    </span>
     <form
       *ngIf="student.userEditing"
       [formGroup]="form"
       (ngSubmit)="onSubmit()"
-      (clickOutside)="onOutsideClick($event)">
+      (clickOutside)="onOutsideClick()">
       <input type="text" formControlName="name">
-      --
+      ~
       <input type="number" formControlName="score" class="score-input">
       <button
       type="submit"

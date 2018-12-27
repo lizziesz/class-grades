@@ -1,6 +1,6 @@
 <ul class="student-list">
   <li *ngFor="let student of students; let i = index;">
-    <span *ngIf="!student.userEditing">
+    <span *ngIf="!student.userEditing" [ngClass]="{highlighted: student.score < 65}">
       {{ student.name }} -- {{ student.score }}
     </span>
     <form

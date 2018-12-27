@@ -9,7 +9,10 @@ form {
   font-family: inherit;
   font-size: inherit;
   list-style-type: none;
-  color: $secondary-color;
+}
+
+.highlighted {
+  color: red;
 }
 
 input {
@@ -18,7 +21,7 @@ input {
   color: inherit;
   background: transparent;
   border: none;
-  border-bottom: 1px solid $secondary-color;
+  border-bottom: 1px solid black;
   text-align: center;
 }
 

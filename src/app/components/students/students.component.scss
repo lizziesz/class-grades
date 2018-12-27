@@ -23,3 +23,21 @@ input {
     color: var($gray-color-3);
   }
 }
+
+.btn {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 100;
+  border-radius: 100px;
+  border: none;
+  background-color: $primary-color;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  width: 10%;
+  padding: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

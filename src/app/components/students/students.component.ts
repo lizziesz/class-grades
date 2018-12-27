@@ -30,12 +30,14 @@ export class StudentsComponent implements OnInit {
 
   addStudent(value: Student) {
     this.store.dispatch({ type: ADD_STUDENT, payload: { value }});
-    this.form.reset();
+    this.form.reset({
+      name: '',
+      score: '',
+      userEditing: false,
+    });
   }
 
   onSubmit() {
-    console.log("model-based form submitted");
-    console.log(this.form);
     this.addStudent(this.form.value);
   }
 

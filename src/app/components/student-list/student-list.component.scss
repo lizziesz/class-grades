@@ -1,6 +1,12 @@
 @import '../../../styles/global/variables';
 
+form {
+  display: inline;
+}
+
 .student-list {
+  font-family: inherit;
+  font-size: inherit;
   list-style-type: none;
   color: $secondary-color;
 }
@@ -11,5 +17,29 @@ input {
   color: inherit;
   background: transparent;
   border: none;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid $secondary-color;
 }
+
+.score-input {
+  width: 5%;
+}
+
+.btn-inline {
+  border: none;
+  color: $primary-color;
+  font-size: .75rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  display: inline-block;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all .2s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 15px;
+
+  &:first-of-type {
+    margin-left: 15px;
+  }
+}
+

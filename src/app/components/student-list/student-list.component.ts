@@ -13,7 +13,6 @@ import { DELETE_STUDENT, UPDATE_STUDENT } from './../../store/actions/students.a
   styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent implements OnInit {
-  // editing = false;
   indexToEdit: number | null;
   students: Student[];
   student: Student;
@@ -44,11 +43,12 @@ export class StudentListComponent implements OnInit {
 
   deleteStudent(index: number) {
     this.store.dispatch({ type: DELETE_STUDENT, payload: { index }});
-    console.log(this.students);
   }
 
   editStudent(student: Student, index: number) {
-    console.log(student);
+    if (this.student && this.student.userEditing) {
+      this.updateStudent(this.form.value);
+    }
     this.form = this.fb.group({
       'name': student.name,
       'score': student.score,
@@ -73,12 +73,10 @@ export class StudentListComponent implements OnInit {
   }
 
   updateStudent(updatedStudent: Student) {
-    console.log(updatedStudent);
     this.store.dispatch({
       type: UPDATE_STUDENT,
       payload: { index: this.indexToEdit, newValue: updatedStudent } });
     this.indexToEdit = null;
-    console.log(this.students);
     this.form.reset();
   }
 

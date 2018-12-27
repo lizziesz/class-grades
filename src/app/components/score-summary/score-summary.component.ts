@@ -10,7 +10,7 @@ import { Student } from './../../Student';
 })
 export class ScoreSummaryComponent implements OnInit {
   students: Student[];
-  scores: number[] = [];
+  scores: number[];
 
   constructor(private store: Store<any>) { }
 
@@ -18,7 +18,6 @@ export class ScoreSummaryComponent implements OnInit {
     this.store.select('studentReducer')
       .subscribe(data => {
         this.students = data;
-        // TODO: move scores logic to reducer?
         this.scores = [];
         if (this.students.length) {
           this.students.forEach(student => {

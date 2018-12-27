@@ -1,14 +1,30 @@
 <ul class="student-list">
   <li *ngFor="let student of students; let i = index;">
     <span *ngIf="!student.userEditing">{{ student.name }} -- {{ student.score }}</span>
-    <form *ngIf="student.userEditing" [formGroup]="form" (ngSubmit)="onSubmit()" (clickOutside)="onOutsideClick($event)">
+    <form
+      *ngIf="student.userEditing"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      (clickOutside)="onOutsideClick($event)">
       <input type="text" formControlName="name">
       --
-      <input type="number" formControlName="score">
-      <button type="submit" [disabled]="!form.valid">Save</button>
+      <input type="number" formControlName="score" class="score-input">
+      <button
+      type="submit"
+      [disabled]="!form.valid"
+      *ngIf="student.userEditing"
+      class="btn-inline">Save</button>
     </form>
-    <button (click)="cancelEdit()" *ngIf="student.userEditing">Cancel</button>
-    <button (click)="editStudent(student, i)" *ngIf="!student.userEditing">Edit</button>
-    <button (click)="deleteStudent(i)">Delete</button>
+    <button
+      (click)="cancelEdit()"
+      *ngIf="student.userEditing"
+      class="btn-inline">Cancel</button>
+    <button
+      (click)="editStudent(student, i)"
+      *ngIf="!student.userEditing"
+      class="btn-inline">Edit</button>
+    <button
+      (click)="deleteStudent(i)"
+      class="btn-inline">Delete</button>
   </li>
 </ul>
